@@ -1,5 +1,14 @@
+import { BrowserRouter } from 'react-router-dom';
+import Rotas from './routes';
+
+import './Config/ReactotronConfig';
+
 function App() {
-  return <h1>Hello GoBarber</h1>;
+  return (
+    <BrowserRouter>
+      <Rotas />
+    </BrowserRouter>
+  );
 }
 
 export default App;
