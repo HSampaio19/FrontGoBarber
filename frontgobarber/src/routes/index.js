@@ -11,13 +11,27 @@ import SingUp from '../pages/SingUp';
 export default function Rotas() {
   return (
     <Routes>
-      <Route path="/" element={<SingIn />} />
-      <Route path="/register" element={<SingUp />} />
+      <Route
+        path="/"
+        element={
+          <PrivateRoute>
+            <SingIn />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/register"
+        element={
+          <PrivateRoute>
+            <SingUp />
+          </PrivateRoute>
+        }
+      />
       <Route
         path="/dashboard"
         element={
           <PrivateRoute>
-            <Dashboard />
+            <Dashboard isPrivate />
           </PrivateRoute>
         }
       />
@@ -25,7 +39,7 @@ export default function Rotas() {
         path="/profile"
         element={
           <PrivateRoute>
-            <Profile />
+            <Profile isPrivate />
           </PrivateRoute>
         }
       />
