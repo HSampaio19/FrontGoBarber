@@ -51,7 +51,8 @@
       "error"
     ],
     "react/react-in-jsx-scope": "off",
-    "react/jsx-props-no-spreading": ["error", {"custom": "ignore"}]
+    "react/jsx-props-no-spreading": ["error", {"custom": "ignore"}],
+    "react/jsx-no-bind": "off"
   },
   "settings": {
     "import/resolver": {
