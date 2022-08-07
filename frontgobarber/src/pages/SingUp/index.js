@@ -1,7 +1,18 @@
 import { Form, Input } from '@rocketseat/unform';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import * as Yup from 'yup';
 import Logo from '../../assets/images/Logo.png';
+
+const schema = Yup.object().shape({
+  name: Yup.string().required('Campo nome Obrigatorio'),
+  email: Yup.string()
+    .email('Insira um e-mail valido')
+    .required('Campo e-mail obrigatorio'),
+  password: Yup.string()
+    .min(6, 'Sua senha deve conter ao menos 6 caracteres')
+    .required('Campo senha obrigatorio'),
+});
 
 function SingUp() {
   function handleSubmit(data) {
@@ -10,7 +21,7 @@ function SingUp() {
   return (
     <>
       <img src={Logo} alt="GoBarber" />
-      <Form onSubmit={handleSubmit}>
+      <Form schema={schema} onSubmit={handleSubmit}>
         <Input name="name" placeholder="Nome Completo" />
         <Input name="email" type="email" placeholder="Seu e-mail" />
         <Input name="password" type="password" placeholder="Senha" />
