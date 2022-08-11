@@ -2,7 +2,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
-
 import Dashboard from '../pages/Dashboard';
 import Profile from '../pages/Profile';
 import SingIn from '../pages/SingIn';
