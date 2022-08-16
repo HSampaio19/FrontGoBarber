@@ -2,7 +2,9 @@ import { Form, Input } from '@rocketseat/unform';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
 import Logo from '../../assets/images/Logo.png';
+import { singUpRequest } from '../../store/modules/auth/actions';
 
 const schema = Yup.object().shape({
   name: Yup.string().required('Campo nome Obrigatorio'),
@@ -15,8 +17,9 @@ const schema = Yup.object().shape({
 });
 
 function SingUp() {
-  function handleSubmit(data) {
-    console.tron.log(data);
+  const dispatch = useDispatch();
+  function handleSubmit({ name, email, password }) {
+    dispatch(singUpRequest(name, email, password));
   }
   return (
     <>

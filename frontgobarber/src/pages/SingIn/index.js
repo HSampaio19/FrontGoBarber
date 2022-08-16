@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { singInRequest } from '../../store/modules/auth/actions';
 
 import Logo from '../../assets/images/Logo.png';
@@ -16,6 +16,7 @@ const schema = Yup.object().shape({
 
 function SingIn() {
   const dispatch = useDispatch();
+  const loading = useSelector(state => state.auth.loading);
 
   function handleSubmit({ email, password }) {
     dispatch(singInRequest(email, password));
@@ -28,7 +29,7 @@ function SingIn() {
         <Input name="email" type="email" placeholder="Seu e-mail" />
         <Input name="password" type="password" placeholder="Senha" />
 
-        <button type="submit">Acessar</button>
+        <button type="submit">{loading ? 'Carregando...' : 'Acessar'}</button>
         <Link to="/register">Cadastrar nova conta</Link>
       </Form>
     </>
