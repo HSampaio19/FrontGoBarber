@@ -8,9 +8,11 @@ import { store } from '../store';
 export default function PrivateRoute({ children }) {
   const { signed } = store.getState().auth;
 
+  // const signed = false;
+
   const { isPrivate } = children.props;
 
-  const Layout = signed && isPrivate ? DefaultLayout : AuthLayout;
+  const Layout = signed ? AuthLayout : DefaultLayout;
 
   if (!signed && isPrivate) {
     return <Navigate to="/" replace />;
