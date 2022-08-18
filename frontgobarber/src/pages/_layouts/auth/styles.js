@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   align-items: center;
   height: 100%;
   /* background: linear-gradient(-90deg, #7159c1, #ab59c1); */
-  background: linear-gradient(-90deg, #444, #111);
+  background: linear-gradient(-90deg, #555, #111);
 `;
 
 export const Content = styled.div`
