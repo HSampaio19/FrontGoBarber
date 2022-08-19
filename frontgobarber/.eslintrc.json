@@ -55,7 +55,10 @@
     "react/jsx-no-bind": "off",
     "default-param-last": "off",
     "no-param-reassign":"off",
-    "arrow-parens": "off"
+    "arrow-parens": "off",
+    "object-curly-newline":"off",
+    "no-underscore-dangle":"off",
+    "import/no-duplicates":"off"
   },
   "settings": {
     "import/resolver": {

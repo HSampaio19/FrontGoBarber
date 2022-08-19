@@ -1,6 +1,7 @@
 /* eslint-disable operator-linebreak */
 /* eslint-disable implicit-arrow-linebreak */
 import styled, { css } from 'styled-components';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 export const Container = styled.div`
   position: relative;
@@ -18,7 +19,8 @@ export const NotificationList = styled.ul`
   left: calc(50% - 130px);
   top: calc(100% + 30px);
   border-radius: 4px;
-  padding: 20px;
+  padding: 15px 5px;
+  display: ${props => (props.visible ? 'block' : 'none')};
 
   &::before {
     content: '';
@@ -33,7 +35,12 @@ export const NotificationList = styled.ul`
   }
 `;
 
-export const StyledNotification = styled.div`
+export const Scroll = styled(PerfectScrollbar)`
+  max-height: 260px;
+  padding: 5px 15px;
+`;
+
+export const Notification = styled.div`
   color: #fff;
 
   & + div {
@@ -48,15 +55,17 @@ export const StyledNotification = styled.div`
   }
 
   time {
+    display: block;
     font-size: 12px;
     opacity: 0.6;
+    margin-bottom: 5px;
+    margin-top: 5px;
   }
 
   button {
+    visibility: hidden;
     font-size: 12px;
     color: #3b9eff;
-    padding: 0 5px;
-    margin: 0 5px;
     opacity: 0.7;
 
     &:hover {
@@ -69,6 +78,9 @@ export const StyledNotification = styled.div`
     css`
       p {
         color: #ff892e;
+      }
+      button {
+        visibility: visible;
       }
     `}
 `;
