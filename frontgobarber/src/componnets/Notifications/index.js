@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { parseISO, formatDistance } from 'date-fns';
 import pt from 'date-fns/locale/pt-BR';
 import ButtonNotification from './ButtonNotification';
@@ -9,6 +9,11 @@ import api from '../../services/api';
 function Notifications() {
   const [visible, setVisible] = useState(false);
   const [notifications, setNotifications] = useState([]);
+
+  const hasUnread = useMemo(
+    () => !!notifications.find(notification => notification.read === false),
+    [notifications],
+  );
 
   useEffect(() => {
     async function loadingNotifications() {
@@ -48,7 +53,7 @@ function Notifications() {
 
   return (
     <Container>
-      <ButtonNotification onClick={handleToggleVisible} hasUnread />
+      <ButtonNotification onClick={handleToggleVisible} hasUnread={hasUnread} />
       <NotificationList visible={visible}>
         <Scroll>
           {notifications.map(notification => (

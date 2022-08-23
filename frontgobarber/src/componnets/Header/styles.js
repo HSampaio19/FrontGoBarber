@@ -66,6 +66,6 @@ export const Profile = styled.div`
     align-self: center;
     height: 42px;
     border-radius: 50%;
-    border: 3px double #eee;
+    border: 3px solid #eee;
   }
 `;

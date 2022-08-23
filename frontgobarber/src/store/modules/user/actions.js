@@ -1,19 +1,19 @@
-export function singInRequest(email, password) {
+export function updateProfileRequest(data) {
   return {
-    type: '@auth/SING_IN_REQUEST',
-    payload: { email, password },
+    type: '@user/UPDATE_PROFILE_REQUEST',
+    payload: { data },
   };
 }
 
-export function singInSuccess(token, user) {
+export function updateProfileSuccess(profile) {
   return {
-    type: '@auth/SING_IN_SUCCESS',
-    payload: { token, user },
+    type: '@user/UPDATE_PROFILE_SUCCESS',
+    payload: { profile },
   };
 }
 
-export function singFailure() {
+export function updateProfileFailure() {
   return {
-    type: '@auth/SING_FAILURE',
+    type: '@user/UPDATE_PROFILE_FAILURE',
   };
 }

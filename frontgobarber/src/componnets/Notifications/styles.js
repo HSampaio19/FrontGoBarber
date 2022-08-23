@@ -63,7 +63,7 @@ export const Notification = styled.div`
   }
 
   button {
-    visibility: hidden;
+    display: none;
     font-size: 12px;
     color: #3b9eff;
     opacity: 0.7;
@@ -80,7 +80,7 @@ export const Notification = styled.div`
         color: #ff892e;
       }
       button {
-        visibility: visible;
+        display: block;
       }
     `}
 `;

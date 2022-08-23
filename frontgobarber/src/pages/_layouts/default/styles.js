@@ -2,23 +2,16 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Wrapper = styled.div`
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   height: 100%;
-  /* background: linear-gradient(-90deg, #7159c1, #ab59c1); */
   background: linear-gradient(-90deg, #555, #111);
 `;
 
 export const Content = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  max-width: 315px;
   text-align: center;
-
-  img {
-    width: 82px;
-    height: 120px;
-  }
 
   form {
     display: flex;
@@ -46,6 +39,13 @@ export const Content = styled.div`
       margin-bottom: 10px;
     }
 
+    hr {
+      height: 1px;
+      margin: 10px 0 20px 0;
+      border: 0;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
     button {
       height: 44px;
       margin: 5px 0 0;
@@ -70,6 +70,28 @@ export const Content = styled.div`
 
       &:hover {
         opacity: 1;
+      }
+    }
+
+    label {
+      margin-bottom: 30px;
+
+      img {
+        height: 120px;
+        width: 120px;
+        border-radius: 50%;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        background: #eee;
+
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+
+      input {
+        display: none;
       }
     }
   }
