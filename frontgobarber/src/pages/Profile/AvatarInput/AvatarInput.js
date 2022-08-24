@@ -6,8 +6,8 @@ import api from '../../../services/api';
 function AvatarInput() {
   const { defaultValue, registerField } = useField('avatar');
 
-  const { preview, setPreview } = useState(defaultValue && defaultValue.url);
-  const { file, setFile } = useState(defaultValue && defaultValue.id);
+  const [preview, setPreview] = useState(defaultValue && defaultValue.url);
+  const [file, setFile] = useState(defaultValue && defaultValue.id);
 
   const ref = useRef();
 
@@ -30,14 +30,12 @@ function AvatarInput() {
 
     const { id, url } = response.data.file;
 
-    console.tron.log(id, url);
-
     setFile(id);
     setPreview(url);
   }
   return (
     <label htmlFor="avatar">
-      <img src={preview || DefaultProfile} alt="" />
+      <img src={preview || DefaultProfile} alt="avatar" />
 
       <input
         type="file"

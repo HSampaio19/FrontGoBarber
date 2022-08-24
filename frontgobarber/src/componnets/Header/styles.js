@@ -65,6 +65,7 @@ export const Profile = styled.div`
   img {
     align-self: center;
     height: 42px;
+    width: 42px;
     border-radius: 50%;
     border: 3px solid #eee;
   }
