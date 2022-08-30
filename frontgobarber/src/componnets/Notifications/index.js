@@ -55,7 +55,7 @@ function Notifications() {
     <Container>
       <ButtonNotification onClick={handleToggleVisible} hasUnread={hasUnread} />
       <NotificationList visible={visible}>
-        <Scroll>
+        <Scroll visible={visible}>
           {notifications.map(notification => (
             <Notification key={notification._id} unread={!notification.read}>
               <p>{notification.content}</p>

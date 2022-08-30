@@ -10,6 +10,8 @@ import { Container, Content, Profile } from './styles';
 function Header() {
   const { profile } = useSelector(state => state.user);
 
+  const avatar = !profile.avatar ? DefaultProfile : profile.avatar.url;
+
   return (
     <Container>
       <Content>
@@ -24,10 +26,7 @@ function Header() {
               <strong>{profile.name}</strong>
               <Link to="/profile">Meu Perfil</Link>
             </div>
-            <img
-              src={profile.avatar.url || DefaultProfile}
-              alt={profile.name}
-            />
+            <img src={avatar} alt={profile.name} />
           </Profile>
         </aside>
       </Content>

@@ -13,14 +13,18 @@ export const Container = styled.div`
 `;
 
 export const NotificationList = styled.ul`
+  z-index: 1;
   position: absolute;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.8);
   min-width: 260px;
   left: calc(50% - 130px);
   top: calc(100% + 30px);
   border-radius: 4px;
-  padding: 15px 5px;
-  display: ${props => (props.visible ? 'block' : 'none')};
+  padding: 0;
+  display: block;
+  height: 0px;
+  transition: height 0.35s, padding 0.35s;
+  transition-delay: 0s;
 
   &::before {
     content: '';
@@ -28,16 +32,44 @@ export const NotificationList = styled.ul`
     left: calc(50% - 20px);
     top: -20px;
     width: 0;
-    height: 0;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    border-bottom: 20px solid rgba(0, 0, 0, 0.6);
+    border-bottom: 0px solid rgba(0, 0, 0, 0.8);
+    transition: border 0.25s;
+    transition-delay: 0.35s;
   }
+
+  ${({ visible }) =>
+    visible &&
+    css`
+      position: absolute;
+      padding: 15px 5px;
+      height: 300px;
+      transition-delay: 0.25s;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: calc(50% - 20px);
+        top: -20px;
+        width: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 20px solid rgba(0, 0, 0, 0.8);
+        transition-delay: 0s;
+      }
+
+      button {
+        display: block;
+      }
+    `}
 `;
 
 export const Scroll = styled(PerfectScrollbar)`
+  visibility: ${props => (props.visible ? 'normal' : 'hidden')};
   max-height: 260px;
   padding: 5px 15px;
+  transition-delay: ${props => (props.visible ? '0.35s' : '0s')};
 `;
 
 export const Notification = styled.div`

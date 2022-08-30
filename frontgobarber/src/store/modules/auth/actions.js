@@ -24,3 +24,8 @@ export function singUpRequest(name, email, password) {
     payload: { name, email, password },
   };
 }
+export function singOut() {
+  return {
+    type: '@auth/SING_OUT',
+  };
+}
