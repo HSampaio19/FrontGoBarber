@@ -10,8 +10,6 @@ import {
   setMinutes,
   setSeconds,
   isBefore,
-  isEqual,
-  parseISO,
 } from 'date-fns';
 import pt from 'date-fns/locale/pt-BR';
 import { utcToZonedTime } from 'date-fns-tz';
@@ -35,13 +33,10 @@ export default function Dashboard() {
         params: { date },
       });
 
-      console.tron.log(response);
-
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
       const data = range.map(hour => {
         const compareDate = setSeconds(setMinutes(setHours(date, hour), 0), 0);
-        // const compareDate = utcToZonedTime(exactHour, timezone);
 
         const appointment = response.data.find(
           a =>
@@ -49,7 +44,6 @@ export default function Dashboard() {
               String(compareDate),
             ) === 0,
         );
-        // String(a.date).slice(0, -5)
 
         return {
           time: `${hour}:00h`,
